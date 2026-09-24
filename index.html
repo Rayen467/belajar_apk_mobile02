@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Multi-Agent Business OS — orkestrasi produksi, stok, HPP, penjualan, keuangan, dan dashboard tanpa bentrok." />
+  <title>NEXA Agents — Multi-Agent Business OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">N</span><div><strong>NEXA</strong><small>Multi-Agent OS</small></div></div>
+      <nav>
+        <button class="nav-item active">Overview</button>
+        <button class="nav-item">Agents</button>
+        <button class="nav-item">Workflows</button>
+        <button class="nav-item">Events</button>
+        <button class="nav-item">Data Ownership</button>
+      </nav>
+      <div class="sidebar-note"><span class="dot"></span><div><strong>System online</strong><small>7 agents registered</small></div></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">MULTI-AGENT BUSINESS OPERATING SYSTEM</div>
+          <h1>Agent Control Center</h1>
+          <p>Setiap agent punya domain, data owner, dan urutan kerja sendiri agar proses tidak saling bentrok.</p>
+        </div>
+        <div class="actions">
+          <button id="resetBtn" class="btn ghost">Reset</button>
+          <button id="runBtn" class="btn primary">▶ Jalankan Simulasi</button>
+        </div>
+      </header>
+
+      <section class="metrics">
+        <article><span>Active Agents</span><strong id="metricAgents">7</strong><small>Semua siap</small></article>
+        <article><span>Queue</span><strong id="metricQueue">0</strong><small>Task menunggu</small></article>
+        <article><span>Processed Events</span><strong id="metricEvents">0</strong><small>Idempotent</small></article>
+        <article><span>Conflicts</span><strong id="metricConflicts">0</strong><small class="success">Target: 0</small></article>
+      </section>
+
+      <section class="grid-two">
+        <article class="panel workflow-panel">
+          <div class="panel-head"><div><span class="eyebrow">LIVE WORKFLOW</span><h2>Orchestration Flow</h2></div><span id="workflowState" class="pill">IDLE</span></div>
+          <div class="flow" id="flow">
+            <div class="agent-card orchestrator" data-agent="orchestrator"><span class="agent-icon">◎</span><div><strong>Orchestrator</strong><small>Membagi task & dependency</small></div><em>idle</em></div>
+            <div class="connector"></div>
+            <div class="agent-row">
+              <div class="agent-card" data-agent="production"><span class="agent-icon">◫</span><div><strong>Production Agent</strong><small>Owner: produksi</small></div><em>idle</em></div>
+              <div class="agent-card" data-agent="inventory"><span class="agent-icon">▦</span><div><strong>Inventory Agent</strong><small>Owner: stok</small></div><em>idle</em></div>
+              <div class="agent-card" data-agent="costing"><span class="agent-icon">∑</span><div><strong>Costing Agent</strong><small>Owner: HPP</small></div><em>idle</em></div>
+            </div>
+            <div class="connector"></div>
+            <div class="agent-row">
+              <div class="agent-card" data-agent="sales"><span class="agent-icon">↗</span><div><strong>Sales Agent</strong><small>Owner: penjualan</small></div><em>idle</em></div>
+              <div class="agent-card" data-agent="finance"><span class="agent-icon">◇</span><div><strong>Finance Agent</strong><small>Owner: jurnal</small></div><em>idle</em></div>
+              <div class="agent-card readonly" data-agent="dashboard"><span class="agent-icon">▥</span><div><strong>Dashboard Agent</strong><small>Read-only analytics</small></div><em>idle</em></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel event-panel">
+          <div class="panel-head"><div><span class="eyebrow">EVENT BUS</span><h2>Activity Stream</h2></div><span class="pill neutral">single-writer</span></div>
+          <div id="eventLog" class="event-log">
+            <div class="empty-state"><span>⌁</span><strong>Belum ada event</strong><small>Tekan “Jalankan Simulasi” untuk melihat alur agent.</small></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="grid-two bottom-grid">
+        <article class="panel ownership">
+          <div class="panel-head"><div><span class="eyebrow">ANTI-CONFLICT RULE</span><h2>Data Ownership</h2></div></div>
+          <div class="ownership-list">
+            <div><span>Produksi</span><strong>Production Agent</strong><i>WRITE</i></div>
+            <div><span>Inventory</span><strong>Inventory Agent</strong><i>WRITE</i></div>
+            <div><span>HPP</span><strong>Costing Agent</strong><i>WRITE</i></div>
+            <div><span>Penjualan</span><strong>Sales Agent</strong><i>WRITE</i></div>
+            <div><span>Keuangan</span><strong>Finance Agent</strong><i>WRITE</i></div>
+            <div><span>Dashboard</span><strong>Dashboard Agent</strong><i class="read">READ</i></div>
+          </div>
+        </article>
+
+        <article class="panel business">
+          <div class="panel-head"><div><span class="eyebrow">BUSINESS SNAPSHOT</span><h2>Simulated Output</h2></div></div>
+          <div class="business-grid">
+            <div><span>Produksi</span><strong id="outProduction">—</strong></div>
+            <div><span>Stok Jadi</span><strong id="outStock">—</strong></div>
+            <div><span>HPP / unit</span><strong id="outHpp">—</strong></div>
+            <div><span>Penjualan</span><strong id="outSales">—</strong></div>
+            <div><span>Gross Profit</span><strong id="outProfit">—</strong></div>
+            <div><span>Dashboard</span><strong id="outDashboard">Belum sinkron</strong></div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>
