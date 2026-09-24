@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="NEXA Agents — configurable AI Workspace dengan 50 specialist agents, division-based orchestration, isolated chat, patch workflow, dan single-writer merge." />
+  <meta name="description" content="NEXA Agents — configurable AI Workspace dengan 50 specialist agents, Chief of Staff, transparent handoff, shared workspace, isolated chat, patch workflow, dan single-writer merge." />
   <title>NEXA Agents — Configurable 50-Agent AI Workspace</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,11 +13,13 @@
 <body>
   <div class="shell">
     <aside class="sidebar">
-      <div class="brand"><span class="brand-mark">N</span><div><strong>NEXA</strong><small>Role-based AI Workspace</small></div></div>
+      <div class="brand"><span class="brand-mark">N</span><div><strong>NEXA</strong><small>AI Company Workspace</small></div></div>
       <nav>
         <button class="nav-item active" data-page="overview">Overview</button>
+        <button class="nav-item" data-page="mainchat">Main Chat</button>
         <button class="nav-item" data-page="agents">Agents</button>
-        <button class="nav-item" data-page="divisions">Divisions</button>
+        <button class="nav-item" data-page="divisions">Teams</button>
+        <button class="nav-item" data-page="workspace">Workspace</button>
         <button class="nav-item" data-page="workflow">Workflow</button>
         <button class="nav-item" data-page="ownership">Anti-Conflict</button>
       </nav>
@@ -29,7 +31,7 @@
         <div>
           <div class="eyebrow">CHATBOT + CONFIGURABLE MULTI-AGENT SYSTEM</div>
           <h1 id="pageTitle">Agent Control Center</h1>
-          <p id="pageSubtitle">Role-based AI organization: tiap tim punya tujuan, instruksi, agent, dan batas wewenang.</p>
+          <p id="pageSubtitle">Satu Chief of Staff mengatur banyak teammate AI yang punya role tetap, chat terpisah, shared workspace, dan alur kerja anti-bentrok.</p>
         </div>
         <div class="actions">
           <button id="addDivisionBtn" class="btn ghost">+ Custom Team</button>
@@ -39,7 +41,7 @@
 
       <section class="page active" data-page-content="overview">
         <section class="metrics">
-          <article><span>Registered Agents</span><strong id="metricAgents">50</strong><small>Role-based specialists</small></article>
+          <article><span>Registered Agents</span><strong id="metricAgents">50</strong><small>Persistent specialist teammates</small></article>
           <article><span>Isolated Chats</span><strong id="metricChats">50</strong><small>Context terpisah per agent</small></article>
           <article><span>Task Queue</span><strong id="metricQueue">0</strong><small>Dependency controlled</small></article>
           <article><span>Conflicts</span><strong id="metricConflicts">0</strong><small class="success">Single final writer</small></article>
@@ -47,24 +49,31 @@
 
         <section class="grid-two">
           <article class="panel workflow-panel">
-            <div class="panel-head"><div><span class="eyebrow">SAFE EXECUTION FLOW</span><h2>Main Chat → Orchestrator → Teams → Merge</h2></div><span id="workflowState" class="pill">IDLE</span></div>
+            <div class="panel-head"><div><span class="eyebrow">SAFE EXECUTION FLOW</span><h2>Main Chat → Chief of Staff → Teams → Merge</h2></div><span id="workflowState" class="pill">IDLE</span></div>
             <div class="safe-flow">
-              <div class="flow-node primary-node"><b>Main Chatbot</b><small>Menerima bahasa natural user</small></div>
+              <div class="flow-node primary-node"><b>Main Chat</b><small>User cukup bicara ke satu interface</small></div>
               <span>↓</span>
-              <div class="flow-node"><b>Core Coordination</b><small>Intent routing + task breakdown + dependency</small></div>
+              <div class="flow-node"><b>Chief of Staff / Orchestrator</b><small>Intent routing + task breakdown + dependency</small></div>
               <span>↓</span>
-              <div class="division-strip"><i>Research / IERD</i><i>Field</i><i>Translation</i><i>Execution</i><i>Decision</i></div>
+              <div class="division-strip"><i>Research</i><i>Field</i><i>Translation</i><i>Execution</i><i>Decision</i></div>
               <span>↓</span>
-              <div class="flow-node"><b>Patch Workspace</b><small>Agent mengirim hasil/patch, bukan overwrite final</small></div>
+              <div class="flow-node"><b>Shared Workspace + Isolated Context</b><small>Berbagi artifact, bukan mencampur semua percakapan</small></div>
               <span>↓</span>
               <div class="flow-node merge-node"><b>Merge Manager + QA</b><small>Version → conflict → validation → final write</small></div>
             </div>
           </article>
 
           <article class="panel event-panel">
-            <div class="panel-head"><div><span class="eyebrow">EVENT BUS</span><h2>Activity Stream</h2></div><span class="pill neutral">single-writer</span></div>
-            <div id="eventLog" class="event-log"><div class="empty-state"><span>⌁</span><strong>Belum ada event</strong><small>Jalankan simulasi untuk melihat beberapa tim bekerja tanpa overwrite.</small></div></div>
+            <div class="panel-head"><div><span class="eyebrow">TRANSPARENT A2A</span><h2>Agent Activity</h2></div><span class="pill neutral">visible handoff</span></div>
+            <div id="eventLog" class="event-log"><div class="empty-state"><span>⌁</span><strong>Belum ada event</strong><small>Jalankan simulasi atau kirim task dari Main Chat.</small></div></div>
           </article>
+        </section>
+
+        <section class="feature-grid">
+          <article class="feature-card"><span>01</span><b>Persistent Roles</b><p>Agent dibentuk berdasarkan tema/jobdesk dan mempertahankan konteks perannya.</p></article>
+          <article class="feature-card"><span>02</span><b>Chief of Staff</b><p>User tidak perlu mengatur 50 agent manual; routing dilakukan otomatis.</p></article>
+          <article class="feature-card"><span>03</span><b>Shared Workspace</b><p>Artifact dan hasil kerja bisa diteruskan antar tim dengan provenance.</p></article>
+          <article class="feature-card"><span>04</span><b>Transparent Handoff</b><p>Pesan antar-agent dan alasan routing dapat dilihat, bukan black box.</p></article>
         </section>
 
         <section class="panel">
@@ -73,9 +82,23 @@
         </section>
       </section>
 
+      <section class="page" data-page-content="mainchat">
+        <section class="main-chat-layout">
+          <article class="panel chief-panel">
+            <div class="panel-head"><div><span class="eyebrow">CHIEF OF STAFF</span><h2>NEXA Main Chat</h2></div><span class="pill">auto-route</span></div>
+            <div id="mainChatMessages" class="main-chat-messages"></div>
+            <form id="mainChatForm" class="main-chat-form"><textarea id="mainChatInput" placeholder="Contoh: Teliti kompetitor, cek data lapangan, buat ringkasan Indonesia, lalu siapkan dashboard dan rekomendasi."></textarea><button class="btn primary">Kirim ke NEXA</button></form>
+          </article>
+          <aside class="panel routing-panel">
+            <div class="panel-head"><div><span class="eyebrow">LIVE ROUTING</span><h2>Task Handoff</h2></div></div>
+            <div id="routingPreview" class="routing-preview"><div class="empty-route">Belum ada task. Chief of Staff akan memilih tim sesuai isi perintah.</div></div>
+          </aside>
+        </section>
+      </section>
+
       <section class="page" data-page-content="agents">
         <section class="panel">
-          <div class="panel-head stack-mobile"><div><span class="eyebrow">AGENT DIRECTORY</span><h2>Isolated Specialist Chats</h2></div><div class="filters"><input id="agentSearch" class="search" placeholder="Cari agent atau tugas..."/><select id="divisionFilter" class="select"><option value="all">Semua tim</option></select></div></div>
+          <div class="panel-head stack-mobile"><div><span class="eyebrow">AGENT DIRECTORY</span><h2>Persistent Specialist Teammates</h2></div><div class="filters"><input id="agentSearch" class="search" placeholder="Cari agent atau tugas..."/><select id="divisionFilter" class="select"><option value="all">Semua tim</option></select></div></div>
           <div id="agentGrid" class="agent-directory"></div>
         </section>
       </section>
@@ -83,8 +106,16 @@
       <section class="page" data-page-content="divisions">
         <section class="panel">
           <div class="panel-head"><div><span class="eyebrow">ROLE-BASED ORGANIZATION</span><h2>Team Blueprints</h2></div><span class="pill neutral">custom-ready</span></div>
-          <p class="helper">Nama tim bebas. Yang menentukan perilaku adalah tujuan, instruksi kerja, daftar role, batas wewenang, dan alur handoff. Agent boleh berbagi hasil lewat orchestrator tetapi final write tetap satu pintu.</p>
+          <p class="helper">Nama tim bebas. Yang menentukan perilaku adalah tujuan, instruksi kerja, daftar role, batas wewenang, dan alur handoff.</p>
           <div id="divisionGrid" class="division-grid"></div>
+        </section>
+      </section>
+
+      <section class="page" data-page-content="workspace">
+        <section class="workspace-grid">
+          <article class="panel"><div class="panel-head"><div><span class="eyebrow">SHARED ARTIFACTS</span><h2>Workspace Files</h2></div><span class="pill neutral">provenance</span></div><div id="workspaceFiles" class="workspace-list"></div></article>
+          <article class="panel"><div class="panel-head"><div><span class="eyebrow">TOOLS & ACCESS</span><h2>Connected Capabilities</h2></div><span class="pill neutral">scoped</span></div><div id="toolRegistry" class="tool-list"></div></article>
+          <article class="panel a2a-panel"><div class="panel-head"><div><span class="eyebrow">AGENT-TO-AGENT</span><h2>Message Bus</h2></div><span class="pill neutral">auditable</span></div><div id="a2aMessages" class="a2a-list"></div></article>
         </section>
       </section>
 
@@ -92,11 +123,11 @@
         <section class="panel">
           <div class="panel-head"><div><span class="eyebrow">DEPENDENCY CONTROL</span><h2>Contoh Task Pipeline</h2></div><button id="runWorkflowBtn" class="btn primary small">Run Pipeline</button></div>
           <div class="pipeline">
-            <div class="pipeline-step" data-step="0"><span>01</span><div><b>Main Chatbot</b><small>Menerima tujuan user dalam bahasa biasa.</small></div></div>
-            <div class="pipeline-step" data-step="1"><span>02</span><div><b>Core Coordination</b><small>Menentukan tim mana yang relevan dan membuat dependency graph.</small></div></div>
-            <div class="pipeline-step" data-step="2"><span>03</span><div><b>Parallel Teams</b><small>Riset, lapangan, penerjemah, engineer, bisnis, atau tim custom bekerja sesuai scope.</small></div></div>
-            <div class="pipeline-step" data-step="3"><span>04</span><div><b>Decision / Review</b><small>Menyusun opsi, trade-off, dan memeriksa kelengkapan.</small></div></div>
-            <div class="pipeline-step" data-step="4"><span>05</span><div><b>Security & QA</b><small>Memeriksa policy, conflict, dan test.</small></div></div>
+            <div class="pipeline-step" data-step="0"><span>01</span><div><b>Main Chat</b><small>Menerima tujuan user dalam bahasa biasa.</small></div></div>
+            <div class="pipeline-step" data-step="1"><span>02</span><div><b>Chief of Staff</b><small>Menentukan tim, urutan, dan dependency.</small></div></div>
+            <div class="pipeline-step" data-step="2"><span>03</span><div><b>Parallel Teammates</b><small>Agent bekerja dalam konteks terisolasi tetapi berbagi artifact yang dibutuhkan.</small></div></div>
+            <div class="pipeline-step" data-step="3"><span>04</span><div><b>Transparent Handoff</b><small>Agent mengirim hasil dan alasan ke agent berikutnya lewat message bus.</small></div></div>
+            <div class="pipeline-step" data-step="4"><span>05</span><div><b>Security & QA</b><small>Memeriksa policy, conflict, provenance, dan test.</small></div></div>
             <div class="pipeline-step" data-step="5"><span>06</span><div><b>Merge Manager</b><small>Satu-satunya jalur final write lalu hasil dikembalikan ke Main Chat.</small></div></div>
           </div>
         </section>
@@ -105,7 +136,7 @@
       <section class="page" data-page-content="ownership">
         <section class="grid-two equal">
           <article class="panel"><div class="panel-head"><div><span class="eyebrow">ANTI-CONFLICT</span><h2>6 Safety Rules</h2></div></div><div class="rules"><div><b>1. Team Scope</b><small>Agent dibatasi jobdesk dan wewenang.</small></div><div><b>2. Resource Ownership</b><small>Data/file sensitif punya owner.</small></div><div><b>3. Patch Only</b><small>Tidak overwrite file final.</small></div><div><b>4. Version Check</b><small>Patch punya base version.</small></div><div><b>5. Dependency Graph</b><small>Task menunggu dependency.</small></div><div><b>6. Single Final Writer</b><small>Merge Manager satu-satunya jalur final write.</small></div></div></article>
-          <article class="panel"><div class="panel-head"><div><span class="eyebrow">WRITE POLICY</span><h2>Permission Matrix</h2></div></div><div class="ownership-list"><div><span>Specialist Agents</span><strong>Read + Propose Patch</strong><i>NO DIRECT WRITE</i></div><div><span>Team Leads</span><strong>Review + Coordinate</strong><i>NO FINAL WRITE</i></div><div><span>Decision Support</span><strong>Options + Risk</strong><i class="read">ADVISORY</i></div><div><span>Security & QA</span><strong>Test + approve/reject</strong><i class="read">VALIDATE</i></div><div><span>Merge Manager</span><strong>Merge validated patch</strong><i>FINAL WRITE</i></div></div></article>
+          <article class="panel"><div class="panel-head"><div><span class="eyebrow">WRITE POLICY</span><h2>Permission Matrix</h2></div></div><div class="ownership-list"><div><span>Specialist Agents</span><strong>Read + Propose Patch</strong><i>NO DIRECT WRITE</i></div><div><span>Team Leads</span><strong>Review + Coordinate</strong><i>NO FINAL WRITE</i></div><div><span>Chief of Staff</span><strong>Route + Monitor + Escalate</strong><i class="read">NO FINAL WRITE</i></div><div><span>Security & QA</span><strong>Test + approve/reject</strong><i class="read">VALIDATE</i></div><div><span>Merge Manager</span><strong>Merge validated patch</strong><i>FINAL WRITE</i></div></div></article>
         </section>
       </section>
     </main>
